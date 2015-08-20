@@ -1,0 +1,14 @@
+#!/bin/bash
+
+python=/srv/gs1/software/python/python-2.7/bin/python
+
+PROJDIR=`pwd`
+PPFile=/srv/gsfs0/projects/kundaje/users/mtaranov/projects/dynamic3D/ContactsAfterIC/P-P_from_HiC/output/PP_SC_RE100.bed
+PromoterFile=/srv/gsfs0/projects/kundaje/users/mtaranov/projects/dynamic3D/FIT-HI-C/promoters_flexible_repl_combined/data/reference_genomes/hg19/PromoterCapture_Digest_Human_HindIII_baits_ID.bed
+
+$python $PROJDIR/PP-Matrix.py $PPFile $PromoterFile $PROJDIR
+
+#to run
+#    PROJDIR=`pwd`
+#    qsub -l h_vmem=20G -l h_rt=20:00:00 -m ea  -M taranova.maryna@gmail.com -o $PROJDIR/o.out -e $PROJDIR/e.error $PROJDIR/split-Contacts.sh 
+     
